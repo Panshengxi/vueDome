@@ -96,6 +96,7 @@ export default {
 
   },
   mounted() {
+      this.$router.push({path:'/Login'});
   },
   methods: {
     login() {

@@ -7,6 +7,7 @@ import http from './common/http'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
+
 Vue.use(http);
 Vue.use(ElementUI)
 Vue.config.productionTip = false
