@@ -11,7 +11,7 @@ export default new Vuex.Store({
         token: '',
         setTokenTime:'',
         isExpired:false,
-        musicSource:'/'
+        musicSource:{}
     },
     getters: {
         getToken(state) {
@@ -41,8 +41,6 @@ export default new Vuex.Store({
         },
         setSource(state,val){
             state.musicSource = val;
-            console.warn(state.musicSource);
-            
         }
     },
     actions: {

@@ -15,7 +15,6 @@ export default {
   created() {},
   methods: {
     login() {
-      this.$message('click')
       this.$http
         .post(this.$type.info + "/user/login", {
           mobile: "abb",
@@ -26,9 +25,9 @@ export default {
             token: res.data.data.ck,
             setTokenTime: new Date().getTime()
           });
-          
+
           this.expiredSolve();
-          this.$router.push({path:'/Home'})
+          this.$router.push({ path: "/Home" });
         });
     },
     register() {
@@ -42,22 +41,17 @@ export default {
         });
     },
     getUserInfo() {
-      this.$http
-        .post(this.$type.info + "/user/getUserInfo",{})
-        .then(res => {
-          console.log(res.data);
-        });
+      this.$http.post(this.$type.info + "/user/getUserInfo", {}).then(res => {
+        console.log(res.data);
+      });
     },
     expiredSolve() {
-        
       const timeId = setInterval(() => {
         const isExpired =
           new Date().getTime() - this.$store.getters.getToken.setTokenTime >
           1000 * 60 * 5;
-        if (isExpired) {
-          this.$store.commit("setExpired", isExpired);
-          clearInterval(timeId);
-        }
+        isExpired &&
+          (this.$store.commit("setExpired", isExpired), clearInterval(timeId));
       }, 1000);
     }
   }
