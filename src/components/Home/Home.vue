@@ -5,7 +5,7 @@
       <el-tab-pane label="听" name="second">
         <Listen />
       </el-tab-pane>
-      <el-tab-pane label="看" name="third"></el-tab-pane>
+      <el-tab-pane label="看" name="third">{{fullName}}</el-tab-pane>
       <el-tab-pane label="唱" name="fourth"></el-tab-pane>
     </el-tabs>
     <!-- 播放器 -->
@@ -19,12 +19,17 @@ import Player from "@/components/Player/Player";
 export default {
   data() {
     return {
-      activeName: "second"
+      activeName: "second",
+      firstName:'ni',
+      lastName:'shi'
     };
   },
-  mounted() {
-  
+  computed: {
+    fullName: function() {
+      return this.firstName + " " + this.lastName;
+    }
   },
+  mounted() {},
 
   methods: {
     handleClick(tab, event) {
@@ -33,6 +38,7 @@ export default {
       }
     }
   },
+
   components: {
     Listen,
     Player

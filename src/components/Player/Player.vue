@@ -21,6 +21,7 @@
         ref="audio"
         class="fixed"
         controls="controls"
+        autobuffer
       >
         <source ref="source" :src="source" type />
       </audio>
@@ -54,10 +55,10 @@ export default {
     play() {
       const audio = this.$refs.audio;
       audio.autoplay || (audio.autoplay = "autoplay");
-      audio.paused ? audio.play() : ((this.percentage = 0), audio.load());
+      audio.paused ? audio.play() : ((this.percentage = 0), audio.load()); 
       this.isplay = true;
     },
-    pause() {
+    pause() { 
       this.$refs.audio.pause();
       this.isplay = false;
     },
