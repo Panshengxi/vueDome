@@ -4,6 +4,9 @@ node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+music.json
+/src/assets/video
+/src/assets/images
 
 # Editor directories and files
 .idea

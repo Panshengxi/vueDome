@@ -6,8 +6,8 @@ import axios from 'axios';
 import router from '../router';
 import store from '../store';
 import { Toast } from 'vant';
-import  domain  from '@domain/domain'
-import  type  from './type'
+import domain from '@domain/domain'
+import type from './type'
 
 /** 
  * 提示函数 
@@ -68,10 +68,11 @@ const errorHandle = (status, other) => {
 const config = {
     baseURL: domain.domain,
     timeout: 1000 * 6,
-    headers:{
-        post:{'Content-Type': 'application/json;charset=utf-8'}
+    headers: {
+        'Content-Type': 'application/json;charset=utf-8'
     }
 }
+// headers:{'Content-Type':'multipart/form-data'} 文件上传请求头
 // 创建axios实例
 var instance = axios.create(config);
 
@@ -86,8 +87,8 @@ instance.interceptors.request.use(
         // 后台根据携带的token判断用户的登录情况，并返回给我们对应的状态码        
         // 而后我们可以在响应拦截器中，根据状态码进行一些统一的操作。        
         const token = store.state.token;
-        const isExpired = store.state.isExpired
-        token && (config.headers.Authorization = isExpired? null: token);
+        const isExpired = store.state.isExpired;
+        token && (config.headers.Authorization = isExpired ? null : token);
         return config;
     },
     error => Promise.error(error))
@@ -112,8 +113,9 @@ instance.interceptors.response.use(
         }
     });
 
-export default function (Vue,options) {
+export default Vue => {
     Vue.prototype.$store = store;
     Vue.prototype.$type = type;
     Object.defineProperty(Vue.prototype, '$http', { value: instance })
+    Object.defineProperty(Vue.prototype, '$domain', { value: domain })
 }

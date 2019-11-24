@@ -19,7 +19,7 @@
                 'el-icon-s-data':b.class=='el-icon-s-data','el-icon-attract':b.class=='el-icon-attract'}"
             ></el-button>
             <div style="padding: 14px;">
-              <span>{{b.title}}</span>
+              <span>{{$t(b.title)}}</span>
             </div>
           </li>
         </ul>
@@ -43,12 +43,16 @@ export default {
     return {
       activeName: "first",
       navMenuList: [
-        { title: "乐库", class: "el-icon-service", type: "primary" },
-        { title: "歌单", class: "el-icon-service", type: "success" },
-        { title: "电台", class: "el-icon-s-data", type: "primary" },
-        { title: "猜你喜欢", class: "el-icon-attract", type: "warning" },
-        { title: "每日推荐", class: "el-icon-collection", type: "danger" },
-        { title: "收起", class: "el-icon-arrow-up",type:'info'}
+        {
+          title: 'Home.musicLibrary',
+          class: "el-icon-service",
+          type: "primary"
+        },
+        { title: "Home.songMenu", class: "el-icon-service", type: "success" },
+        { title: "Home.radio", class: "el-icon-s-data", type: "primary" },
+        { title: "Home.guessYoulike", class: "el-icon-attract", type: "warning" },
+        { title: "Home.recommendedDaily", class: "el-icon-collection", type: "danger" }
+        // { title: "收起", class: "el-icon-arrow-up", type: "info" }
       ]
     };
   },
