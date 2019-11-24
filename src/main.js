@@ -6,22 +6,12 @@ import router from './router'
 import http from './common/http'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
-
-// import VueI18n from 'vue-i18n'
-import VueI18n from '@/i18n/vueI18n' ;
-import config from '@/i18n/config'
-import utils from '@/common/utils/utils'
+import i18n from '@/i18n/i18n'
 
 Vue.use(http);
-Vue.use(VueI18n) // 通过插件的形式挂载
-Vue.use(utils)
-
-config.locale = Vue.prototype.$cookie.getCookie("lang") || "zh-CN"
-const i18n = new VueI18n(config)
 Vue.use(ElementUI)
 
 Vue.config.productionTip = false
-
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

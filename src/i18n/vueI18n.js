@@ -26,13 +26,14 @@ VueI18n.prototype = {
     init(Vue) {
         Vue.prototype.$i18n = this.proxy;
         Vue.prototype.$t = function (key) {
-            var i18n = this.$i18n;
+            let i18n = this.$i18n;
             return i18n._t(key, i18n.locale, i18n.messages)
         };
-        this._vm = new Vue({ data: this.proxy });//初始化Vue实例监听i18n属性
+        new Vue({ data: this.proxy });//初始化Vue实例监听i18n属性
     }
 }
 VueI18n.install = function (Vue) {
     !this.installed && (this.installed = true, _Vue = Vue)
+    return;
 };
 export default VueI18n;

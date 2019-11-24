@@ -11,7 +11,7 @@
       <el-col :span="8" v-for="(b, idx) in navMenuList" :key="idx">
         <ul>
           <li>
-            <el-button
+            <el-button @click="change(b)"
               :type="b.type"
               class="icon"
               :class="{'el-icon-arrow-up':b.class=='el-icon-arrow-up',
@@ -58,10 +58,12 @@ export default {
   },
   methods: {
     handleClick(tab, event) {
-      //   console.log(tab, event);
       if (tab.$children.length == 0) {
         this.$message("在开发中！");
       }
+    },
+    change(val){
+      console.log(val,'--------------------val')
     }
   },
   components: {

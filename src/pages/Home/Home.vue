@@ -22,7 +22,7 @@
 import Listen from "@/components/Listen/Listen";
 import Player from "@/components/Player/Player";
 import Translate from "@/components/Translate/Translate";
-export default {
+export default { 
   data() {
     return {
       activeName: "second"
@@ -31,7 +31,7 @@ export default {
   computed: {},
   mounted() {
     console.log(this,'-------------this')
-  },
+  },  
 
   methods: {
     handleClick(tab, event) {
